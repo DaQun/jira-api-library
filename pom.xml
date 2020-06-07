@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.chenq.jira.plugin</groupId>
+            <artifactId>jira-develop-helper</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.atlassian.activeobjects</groupId>
             <artifactId>activeobjects-plugin</artifactId>
             <version>1.2.0</version>
@@ -74,12 +79,12 @@
         </dependency>
 
         <!-- WIRED TEST RUNNER DEPENDENCIES -->
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
-            <version>${plugin.testrunner.version}</version>
-            <scope>test</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.atlassian.plugins</groupId>-->
+        <!--            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>-->
+        <!--            <version>${plugin.testrunner.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>jsr311-api</artifactId>
@@ -93,17 +98,24 @@
         </dependency>
         <!-- Uncomment to use TestKit in your project. Details at https://bitbucket.org/atlassian/jira-testkit -->
         <!-- You can read more about TestKit at https://developer.atlassian.com/display/JIRADEV/Plugin+Tutorial+-+Smarter+integration+testing+with+TestKit -->
-<!--        <dependency>-->
-<!--            <groupId>com.atlassian.jira.tests</groupId>-->
-<!--            <artifactId>jira-testkit-client</artifactId>-->
-<!--            <version>${testkit.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.atlassian.jira.tests</groupId>-->
+        <!--            <artifactId>jira-testkit-client</artifactId>-->
+        <!--            <version>${testkit.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.atlassian.jira</groupId>-->
+        <!--            <artifactId>jira-func-tests-legacy</artifactId>-->
+        <!--            <version>${jira.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
         <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-func-tests-legacy</artifactId>
-            <version>${jira.version}</version>
-            <scope>test</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
@@ -118,13 +130,13 @@
                     <productVersion>${jira.version}</productVersion>
                     <productDataVersion>${jira.version}</productDataVersion>
                     <!-- Uncomment to install TestKit backdoor in JIRA. -->
-<!--                    <pluginArtifacts>-->
-<!--                        <pluginArtifact>-->
-<!--                            <groupId>com.atlassian.jira.tests</groupId>-->
-<!--                            <artifactId>jira-testkit-plugin</artifactId>-->
-<!--                            <version>${testkit.version}</version>-->
-<!--                        </pluginArtifact>-->
-<!--                    </pluginArtifacts>-->
+                    <!--                    <pluginArtifacts>-->
+                    <!--                        <pluginArtifact>-->
+                    <!--                            <groupId>com.atlassian.jira.tests</groupId>-->
+                    <!--                            <artifactId>jira-testkit-plugin</artifactId>-->
+                    <!--                            <version>${testkit.version}</version>-->
+                    <!--                        </pluginArtifact>-->
+                    <!--                    </pluginArtifacts>-->
                     <enableQuickReload>true</enableQuickReload>
 
                     <!-- See here for an explanation of default instructions: -->
@@ -176,7 +188,7 @@
     </build>
 
     <properties>
-        <jira.version>7.13.0</jira.version>
+        <jira.version>8.5.0</jira.version>
         <amps.version>8.0.2</amps.version>
         <plugin.testrunner.version>2.0.1</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
@@ -187,6 +199,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <ao.version>1.2.0</ao.version>
     </properties>
 
 </project>

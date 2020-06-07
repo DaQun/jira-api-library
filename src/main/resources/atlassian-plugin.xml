@@ -8,17 +8,17 @@
     </plugin-info>
 
     <!-- add our i18n resource -->
-    <resource type="i18n" name="i18n" location="jira-api-library"/>
+    <resource type="i18n" name="i18n" location="com.github.daqun.jira-api-library"/>
     
     <!-- add our web resources -->
-    <web-resource key="jira-api-library-resources" name="jira-api-library Web Resources">
+    <web-resource key="com.github.daqun.jira-api-library-resources" name="com.github.daqun.jira-api-library Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         
-        <resource type="download" name="jira-api-library.css" location="/css/jira-api-library.css"/>
-        <resource type="download" name="jira-api-library.js" location="/js/jira-api-library.js"/>
+        <resource type="download" name="com.github.daqun.jira-api-library.css" location="/css/com.github.daqun.jira-api-library.css"/>
+        <resource type="download" name="com.github.daqun.jira-api-library.js" location="/js/com.github.daqun.jira-api-library.js"/>
         <resource type="download" name="images/" location="/images"/>
 
-        <context>jira-api-library</context>
+        <context>com.github.daqun.jira-api-library</context>
     </web-resource>
     
 </atlassian-plugin>

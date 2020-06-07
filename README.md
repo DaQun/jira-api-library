@@ -1,1 +1,1 @@
-# jira-api-library
+# com.github.daqun.jira-api-library

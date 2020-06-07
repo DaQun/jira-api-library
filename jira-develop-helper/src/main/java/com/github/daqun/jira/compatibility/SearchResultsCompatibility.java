@@ -1,4 +1,4 @@
-package com.chenq.jira.plugin.compatibility;
+package com.github.daqun.jira.compatibility;
 
 
 import com.atlassian.jira.component.ComponentAccessor;
@@ -45,7 +45,7 @@ public class SearchResultsCompatibility {
     private void decodeJIRAVersion() {
         ApplicationProperties applicationProperties = ComponentAccessor
                 .getApplicationProperties();
-        String versionString = applicationProperties.getString("jira.version");
+        String versionString = applicationProperties.getString("com.github.daqun.jira.version");
 
         try {
             String versionRegex = "^(\\d+)\\.(\\d+)";

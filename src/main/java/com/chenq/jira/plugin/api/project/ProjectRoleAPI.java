@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Set;
 
 /**
- * jira project role常用API
+ * com.github.daqun.jira project role常用API
  * 2020/4/16 18:15
  * Created by chenq
  */

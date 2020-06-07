@@ -11,7 +11,7 @@ import com.chenq.jira.plugin.constant.IConstant;
 import lombok.RequiredArgsConstructor;
 
 /**
- * jira project常用API
+ * com.github.daqun.jira project常用API
  * 2020/4/16 17:55
  * Created by chenq
  */
@@ -35,7 +35,7 @@ public class ProjectAPI {
                 .withLead(loggedInUser)
                 .withAssigneeType(AssigneeTypes.PROJECT_LEAD)
                 // 需要设置一下template,不然没有配置方案
-                .withProjectTemplateKey("com.atlassian.jira-core-project-templates:jira-core-project-management")
+                .withProjectTemplateKey("com.atlassian.com.github.daqun.jira-core-project-templates:com.github.daqun.jira-core-project-management")
                 .build();
         ProjectService.CreateProjectValidationResult createProjectValidationResult = projectService
                 .validateCreateProject(loggedInUser, build);

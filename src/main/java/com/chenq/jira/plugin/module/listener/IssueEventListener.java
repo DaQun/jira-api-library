@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import javax.inject.Named;
+
 /**
  * issue的监听事件
  * 2020/4/17 17:25
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.InitializingBean;
  */
 @Slf4j
 @RequiredArgsConstructor
+@Named
 public class IssueEventListener implements InitializingBean, DisposableBean {
     @ComponentImport private final EventPublisher eventPublisher;
 
@@ -34,5 +37,6 @@ public class IssueEventListener implements InitializingBean, DisposableBean {
     public void onIssueEvent(IssueEvent event) {
         Issue issue = event.getIssue();
         log.debug("Issue {} event trigger. ", issue.getKey());
+        System.out.println(event.getUser());
     }
 }

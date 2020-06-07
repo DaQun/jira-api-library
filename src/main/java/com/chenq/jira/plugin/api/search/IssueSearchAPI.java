@@ -6,8 +6,8 @@ import com.atlassian.jira.issue.search.SearchException;
 import com.atlassian.jira.issue.search.SearchResults;
 import com.atlassian.jira.web.bean.PagerFilter;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
-import com.chenq.jira.plugin.compatibility.SearchResultsCompatibility;
 import com.chenq.jira.plugin.constant.IConstant;
+import com.github.daqun.jira.compatibility.SearchResultsCompatibility;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class IssueSearchAPI {
         if (parseResult.isValid()) {
             SearchResults searchResults = searchService
                     .search(IConstant.OPERATOR, parseResult.getQuery(), PagerFilter.getUnlimitedFilter());
-            // jira 7 的方法 searchResults.getIssues()
-            // jira 8 的方法 searchResults.getResults()
+            // com.github.daqun.jira 7 的方法 searchResults.getIssues()
+            // com.github.daqun.jira 8 的方法 searchResults.getResults()
             // 这里使用兼容处理类
             return new SearchResultsCompatibility().getResults(searchResults);
         }
