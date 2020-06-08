@@ -32,8 +32,8 @@ public class IssueSearchAPI {
         if (parseResult.isValid()) {
             SearchResults searchResults = searchService
                     .search(IConstant.OPERATOR, parseResult.getQuery(), PagerFilter.getUnlimitedFilter());
-            // com.github.daqun.jira 7 的方法 searchResults.getIssues()
-            // com.github.daqun.jira 8 的方法 searchResults.getResults()
+            // jira 7 的方法 searchResults.getIssues()
+            // jira 8 的方法 searchResults.getResults()
             // 这里使用兼容处理类
             return new SearchResultsCompatibility().getResults(searchResults);
         }
