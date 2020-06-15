@@ -4,20 +4,19 @@ import javax.ws.rs.core.Response;
 import java.util.Map;
 
 /**
- * @Description
- * @Date 2019/4/13 16:31
- * @Created by chenq
+ * 2019/4/13 16:31
+ * created by chenq
  */
-public abstract class DsdBaseException extends Exception implements CommonError {
+public abstract class PluginBaseException extends Exception implements CommonError {
 
     protected CommonError commonError;
 
-    public DsdBaseException() {
+    public PluginBaseException() {
         super();
         this.commonError = getError();
     }
 
-    public DsdBaseException(String message) {
+    public PluginBaseException(String message) {
         this();
         this.setErrMsg(message);
     }

@@ -4,10 +4,8 @@ import javax.ws.rs.core.Response;
 import java.util.Map;
 
 /**
- * @Classname CommonError
- * @Description
- * @Date 2019/3/4 18:04
- * @Created by chenq
+ * 2019/3/4 18:04
+ * created by chenq
  */
 public interface CommonError {
     int DEFAULT_CODE = 10001;

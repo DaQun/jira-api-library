@@ -9,10 +9,8 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * @Classname BaseWebActionSupport
- * @Description
- * @Date 2019/3/4 15:07
- * @Created by chenq
+ * 2019/3/4 15:07
+ * created by chenq
  */
 public abstract class BaseWebActionSupport extends JiraWebActionSupport {
 

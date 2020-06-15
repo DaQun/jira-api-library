@@ -7,9 +7,9 @@ import net.java.ao.Polymorphic;
 import java.util.Date;
 
 /**
- * @Description
- * @Date 2019/4/22 17:39
- * @Created by chenq
+ * 创建日期、创建者字段
+ * 2019/4/22 17:39
+ * created by chenq
  */
 @Polymorphic
 public interface CreateColumn extends Entity {

@@ -3,10 +3,10 @@ package com.chenq.jira.plugin.module.job;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.scheduler.*;
 import com.atlassian.scheduler.config.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
  * 定时执行任务
  */
 @Named
-@RequiredArgsConstructor
 public class ScheduleJob implements JobRunner, InitializingBean, DisposableBean {
 
     private static final long EVERY_MINUTE = TimeUnit.MINUTES.toMillis(1);
@@ -22,6 +21,11 @@ public class ScheduleJob implements JobRunner, InitializingBean, DisposableBean 
     private static final JobId JOB_ID = JobId.of(ScheduleJob.class.getName());
     @ComponentImport
     private final SchedulerService scheduler;
+
+    @Inject
+    public ScheduleJob(SchedulerService scheduler) {
+        this.scheduler = scheduler;
+    }
 
     @Override
     public JobRunnerResponse runJob(JobRunnerRequest request) {

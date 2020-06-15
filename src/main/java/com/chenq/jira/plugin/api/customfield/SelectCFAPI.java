@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections.MultiMap;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class SelectCFAPI extends CustomFieldAPI{
     @ComponentImport
     private final OptionsManager optionsManager;
 
+    @Inject
     public SelectCFAPI(CustomFieldManager customFieldManager, OptionsManager optionsManager) {
         super(customFieldManager);
         this.optionsManager = optionsManager;

@@ -7,6 +7,13 @@
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
+    <ao key="jira-demo-ao-module" namespace="com.chenq.jira.plugin.demo">
+        <description>The module configuring the Active Objects service used by this plugin</description>
+        <entity>com.chenq.jira.plugin.api.ao.entity.GroupEntity</entity>
+        <entity>com.chenq.jira.plugin.api.ao.entity.UserEntity</entity>
+        <upgradeTask>com.chenq.jira.plugin.api.ao.upgrades.v1.InitDataTask</upgradeTask>
+    </ao>
+
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="com.github.daqun.jira-api-library"/>
     

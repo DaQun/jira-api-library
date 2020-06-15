@@ -8,10 +8,8 @@ import net.java.ao.Query;
 import java.util.List;
 
 /**
- * @Classname ILogicalDeleteService
- * @Description
- * @Date 2019/3/2 20:12
- * @Created by chenq
+ * 2019/3/2 20:12
+ * created by chenq
  */
 public interface ILogicalDeleteService<T extends Entity> {
     /**

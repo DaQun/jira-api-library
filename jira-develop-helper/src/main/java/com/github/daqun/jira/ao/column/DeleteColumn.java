@@ -5,10 +5,9 @@ import net.java.ao.Polymorphic;
 import net.java.ao.schema.Default;
 
 /**
- * @Classname DeleteColumn
- * @Description
- * @Date 2019/3/2 10:17
- * @Created by chenq
+ * 标识记录是否被删除（逻辑删除）
+ * 2019/3/2 10:17
+ * created by chenq
  */
 @Polymorphic
 public interface DeleteColumn extends Entity {

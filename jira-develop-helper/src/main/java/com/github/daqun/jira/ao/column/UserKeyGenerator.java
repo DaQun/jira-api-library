@@ -7,10 +7,9 @@ import net.java.ao.ValueGenerator;
 import java.util.Optional;
 
 /**
- * @Classname UserKeyGenerator
- * @Description
- * @Date 2019/3/1 17:41
- * @Created by chenq
+ * 用户key生成器
+ * 2019/3/1 17:41
+ * created by chenq
  */
 public class UserKeyGenerator implements ValueGenerator<String>{
     @Override

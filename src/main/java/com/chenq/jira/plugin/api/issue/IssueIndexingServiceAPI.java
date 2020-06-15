@@ -6,6 +6,7 @@ import com.atlassian.jira.issue.index.IssueIndexingService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
 public class IssueIndexingServiceAPI {
     @ComponentImport
     private final IssueIndexingService issueIndexingService;
-
+    @Inject
     public IssueIndexingServiceAPI(IssueIndexingService issueIndexingService) {
         this.issueIndexingService = issueIndexingService;
     }

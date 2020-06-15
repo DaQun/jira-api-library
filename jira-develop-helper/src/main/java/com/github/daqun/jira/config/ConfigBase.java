@@ -1,9 +1,8 @@
 package com.github.daqun.jira.config;
 
 /**
- * @Description
- * @Date 2019/4/10 19:41
- * @Created by chenq
+ *  2019/4/10 19:41
+ * created by chenq
  */
 public interface ConfigBase {
     /**

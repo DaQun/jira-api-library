@@ -6,10 +6,8 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
- * @Classname Resp
- * @Description
- * @Date 2019/3/13 14:40
- * @Created by chenq
+ *  2019/3/13 14:40
+ * created by chenq
  */
 public class Resp {
 

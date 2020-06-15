@@ -13,6 +13,7 @@ import com.google.common.collect.Maps;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
 import java.util.Map;
 
 /**
@@ -20,14 +21,23 @@ import java.util.Map;
  * Created by chenq
  */
 @Component
-@RequiredArgsConstructor
 public class IssueAPI {
     @ComponentImport
-    private final JiraAuthenticationContext jiraAuthenticationContext;
+    protected final JiraAuthenticationContext jiraAuthenticationContext;
     @ComponentImport
-    private final IssueManager issueManager;
+    protected final IssueManager issueManager;
     @ComponentImport
-    private final IssueService issueService;
+    protected final IssueService issueService;
+    @ComponentImport
+    protected final IssueFactory issueFactory;
+
+    @Inject
+    public IssueAPI(JiraAuthenticationContext jiraAuthenticationContext, IssueManager issueManager, IssueService issueService, IssueFactory issueFactory) {
+        this.jiraAuthenticationContext = jiraAuthenticationContext;
+        this.issueManager = issueManager;
+        this.issueService = issueService;
+        this.issueFactory = issueFactory;
+    }
 
     /**
      * 通过issueManager创建issue
@@ -37,7 +47,6 @@ public class IssueAPI {
      */
     public Issue createIssueByIssueManager(Project project) throws CreateException {
         ApplicationUser user = jiraAuthenticationContext.getLoggedInUser();
-        IssueFactory issueFactory = ComponentAccessor.getIssueFactory();
         MutableIssue issue = issueFactory.getIssue();
         issue.setIssueTypeId("10000");
         issue.setProjectId(project.getId());

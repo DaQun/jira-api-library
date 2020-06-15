@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
 import java.util.Collection;
 
 /**
@@ -13,10 +14,14 @@ import java.util.Collection;
  * Created by chenq
  */
 @Component
-@RequiredArgsConstructor
 public class CustomFieldAPI {
     @ComponentImport
     protected final CustomFieldManager customFieldManager;
+
+    @Inject
+    public CustomFieldAPI(CustomFieldManager customFieldManager) {
+        this.customFieldManager = customFieldManager;
+    }
 
     /**
      * 根据custom field字段名获取字段

@@ -6,9 +6,9 @@ import net.java.ao.Polymorphic;
 import java.util.Date;
 
 /**
- * @Description
- * @Date 2019/4/22 17:40
- * @Created by chenq
+ * 修改者、修改时间
+ * 2019/4/22 17:40
+ * created by chenq
  */
 @Polymorphic
 public interface UpdateColumn extends Entity {

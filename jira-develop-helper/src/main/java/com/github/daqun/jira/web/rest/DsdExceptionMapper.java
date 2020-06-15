@@ -1,6 +1,6 @@
 package com.github.daqun.jira.web.rest;
 
-import com.github.daqun.jira.error.DsdException;
+import com.github.daqun.jira.error.PluginException;
 import com.github.daqun.jira.web.response.Resp;
 
 import javax.ws.rs.Produces;
@@ -10,19 +10,18 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 /**
- * @Classname ExceptionMapper
- * @Description resource异常处理
- * @Date 2019/3/13 14:58
- * @Created by chenq
+ *  resource异常处理
+ *  2019/3/13 14:58
+ * created by chenq
  */
 @Provider
 @Produces({MediaType.APPLICATION_JSON})
-public class DsdExceptionMapper implements ExceptionMapper<DsdException> {
+public class DsdExceptionMapper implements ExceptionMapper<PluginException> {
     public DsdExceptionMapper() {
     }
 
     @Override
-    public Response toResponse(DsdException exception) {
+    public Response toResponse(PluginException exception) {
         return Resp.err(exception);
     }
 }

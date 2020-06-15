@@ -37,7 +37,4 @@ public class SecurityInterceptor implements ResourceInterceptor {
 //        }
     }
 
-//    private boolean adminRequired(final MethodInvocation method) {
-//        return method.getResource().getClass().getAnnotation(AdminRequired.class) != null;
-//    }
 }

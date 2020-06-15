@@ -6,10 +6,9 @@ import net.java.ao.ValueGenerator;
 import java.util.Date;
 
 /**
- * @Classname DateGenerator
- * @Description
- * @Date 2019/3/1 17:34
- * @Created by chenq
+ * 数据库日期字段生成器
+ * 2019/3/1 17:34
+ * created by chenq
  */
 public class DateGenerator implements ValueGenerator<Date> {
     @Override

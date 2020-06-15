@@ -10,13 +10,11 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * 插件管理类
- * 如需使用，请在插件的atlassian-plugin.xml中配置
- * <component key="dsdPluginManager" class="com.shdsd.com.github.daqun.jira.plugin.core.manager.DsdPluginManager" />
- * @Date 2019/4/11 21:20
- * @Created by chenq
+ * 2019/4/11 21:20
+ * created by chenq
  */
 @RequiredArgsConstructor
-public class DsdPluginManager {
+public class JiraPluginManager {
 
     private final PluginLicenseManager pluginLicenseManager;
 

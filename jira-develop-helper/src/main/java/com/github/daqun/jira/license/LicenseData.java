@@ -6,15 +6,13 @@ import lombok.Data;
 import java.io.*;
 
 /**
- * @Classname LicenseData
- * @Description
- * @Date 2019/4/9 14:04
- * @Created by chenq
+ *  2019/4/9 14:04
+ * created by chenq
  */
 @Data
 @Builder
 public class LicenseData implements Serializable {
-    // 购买插件的公司名
+    // 客户公司名
     private String companyName;
     // 插件名
     private String pluginName;

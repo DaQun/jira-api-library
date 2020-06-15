@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Classname DBParamBuilder
- * @Description DBParam的封装
- * @Date 2019/3/21 17:57
- * @Created by chenq
+ * DBParam的封装
+ * 2019/3/21 17:57
+ * created by chenq
  */
 public class DBParamBuilder {
 

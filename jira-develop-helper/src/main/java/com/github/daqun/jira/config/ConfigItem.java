@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @Description
- * @Date 2019/4/10 20:40
- * @Created by chenq
+ *  2019/4/10 20:40
+ * created by chenq
  */
 @Getter
 @Setter

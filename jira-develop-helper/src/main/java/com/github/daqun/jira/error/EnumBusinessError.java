@@ -7,10 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Classname EnumBusinessError
- * @Description
- * @Date 2019/3/4 18:06
- * @Created by chenq
+ * 2019/3/4 18:06
+ * created by chenq
  */
 public enum EnumBusinessError implements CommonError {
     //通用错误类型10001
@@ -25,18 +23,11 @@ public enum EnumBusinessError implements CommonError {
     private String errMsg;
     private Response.Status errStatus;
 
-    //    EnumBusinessError(int errCode, String errMsg) {
-    //        this.errStatus = Response.Status.BAD_REQUEST;
-    //        this.errCode = errCode;
-    //        this.errMsg = errMsg;
-    //    }
     EnumBusinessError(ErrorInfo errorInfo) {
         this.errStatus = ObjectUtils.defaultIfNull(errorInfo.getErrStatus(), Response.Status.FORBIDDEN);
         this.errCode = ObjectUtils.defaultIfNull(errorInfo.getErrCode(), DEFAULT_CODE);
         this.errMsg = ObjectUtils.defaultIfNull(errorInfo.getErrMsg(), "操作失败");
-        ;
     }
-
 
     EnumBusinessError(Response.Status status, int errCode, String errMsg) {
         this.errStatus = status;
@@ -44,11 +35,6 @@ public enum EnumBusinessError implements CommonError {
         this.errMsg = errMsg;
     }
 
-    //    EnumBusinessError(Response.Status status, int errCode) {
-    //        this.errStatus = status;
-    //        this.errCode = errCode;
-    //        this.errMsg = "操作失败";
-    //    }
     @Override
     public int getErrCode() {
         return this.errCode;

@@ -1,4 +1,4 @@
-package com.github.daqun.jira.ao.entity;
+package com.chenq.jira.plugin.api.ao.entity;
 
 
 import net.java.ao.Entity;

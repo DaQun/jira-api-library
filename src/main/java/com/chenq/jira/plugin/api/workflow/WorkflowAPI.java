@@ -8,6 +8,8 @@ import com.chenq.jira.plugin.constant.IConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
+
 /**
  * 2020/5/29 9:37
  * Created by chenq
@@ -19,6 +21,7 @@ public class WorkflowAPI {
     @ComponentImport
     private final IssueService issueService;
 
+    @Inject
     public WorkflowAPI(IssueService issueService) {
         this.issueService = issueService;
     }

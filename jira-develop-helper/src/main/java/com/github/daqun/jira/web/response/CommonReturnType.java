@@ -1,10 +1,8 @@
 package com.github.daqun.jira.web.response;
 
 /**
- * @Classname CommonReturnType
- * @Description
- * @Date 2019/1/17 11:36
- * @Created by chenq
+ *  2019/1/17 11:36
+ * created by chenq
  */
 public class CommonReturnType {
 

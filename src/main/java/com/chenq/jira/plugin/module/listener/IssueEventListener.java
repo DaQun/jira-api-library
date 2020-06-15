@@ -5,11 +5,11 @@ import com.atlassian.event.api.EventPublisher;
 import com.atlassian.jira.event.issue.IssueEvent;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -18,10 +18,15 @@ import javax.inject.Named;
  * Created by chenq
  */
 @Slf4j
-@RequiredArgsConstructor
 @Named
 public class IssueEventListener implements InitializingBean, DisposableBean {
     @ComponentImport private final EventPublisher eventPublisher;
+
+    @Inject
+    public IssueEventListener(EventPublisher eventPublisher) {
+        this.eventPublisher = eventPublisher;
+    }
+
 
     @Override
     public void destroy() throws Exception {

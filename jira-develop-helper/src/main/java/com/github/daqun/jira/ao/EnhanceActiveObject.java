@@ -23,10 +23,9 @@ import java.util.Map;
 import static com.google.common.base.Preconditions.checkState;
 
 /**
- * @Classname EnhanceActiveObject
- * @Description ao的增强类，声明了ao的常用方法，如果需要使用一些不常用方法，使用getAO方法，获取实际的ao
- * @Date 2019/3/2 18:26
- * @Created by chenq
+ * ao的增强类，声明了ao的常用方法，如果需要使用一些不常用方法，使用getAO方法，获取实际的ao
+ * 2019/3/2 18:26
+ * created by chenq
  */
 public class EnhanceActiveObject {
     private ActiveObjects ao;
@@ -35,12 +34,11 @@ public class EnhanceActiveObject {
         this.ao = activeObjects;
     }
 
-    private static final Map<Class<? extends Entity>, Boolean> DELETE_ENTITY_MAP = new HashMap();
+    private static final HashMap<Class<? extends Entity>, Boolean> DELETE_ENTITY_MAP = new HashMap<>();
 
     /**
      * 是否继承了DeleteColumn，用来做逻辑删除判断
      * @param clazz entity类
-     * @return
      */
     private boolean hasDeleteColumn(Class<? extends Entity> clazz) {
         return DELETE_ENTITY_MAP.computeIfAbsent(clazz, DeleteColumn.class::isAssignableFrom);
@@ -59,11 +57,7 @@ public class EnhanceActiveObject {
     }
 
     /**
-     * 逻辑
-     * @param aClass
-     * @param ks
-     * @param <T>
-     * @return
+     * 获取实体，如果该实体标记为被删除，则查询不到
      */
     public <T extends DeleteColumn> T[] getLogical(Class<T> aClass, Integer[] ks) {
         T[] ts = ao.get(aClass, ks);
@@ -154,23 +148,12 @@ public class EnhanceActiveObject {
         return ao.find(aClass, query);
     }
 
-// 本来想用spring-web-data下的page，但是安装之后找不到类，还是用jira原生的page类吧
-//    public <T extends Entity> Page<T> find(Class<T> aClass, Query query, Pageable pageable) {
-//        // 先查询count，否则count和limit混用会出现问题
-//        long total = ao.count(aClass, query);
-//
-//        if (pageable != null) {
-//            query.limit(pageable.getPageSize()).offset(pageable.getOffset());
-//        }
-//
-//        T[] ts = ao.find(aClass, query);
-//
-//        return new PageImpl(Lists.newArrayList(ts), pageable, total);
-//    }
-
     public <T extends Entity> Page<T> find(Class<T> aClass, Query query, PageRequest pageRequest) {
+        String orderClause = query.getOrderClause();
+        query.setOrderClause(null);
         // 先查询count，否则count和limit混用会出现问题
         long total = ao.count(aClass, query);
+        query.setOrderClause(orderClause);
 
         if (pageRequest != null) {
             query.limit(pageRequest.getLimit()).offset(pageRequest.getLimit());

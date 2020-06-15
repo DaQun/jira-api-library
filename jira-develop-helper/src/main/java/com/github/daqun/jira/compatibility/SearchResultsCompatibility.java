@@ -14,10 +14,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Classname SearchResultsCompatibility
- * @Description 为了兼容jira8中的SearchResults#getIssues方法名改为#getResults
- * @Date 2019/3/25 15:04
- * @Created by chenq
+ * 为了兼容jira8中的SearchResults#getIssues方法名改为#getResults
+ *  2019/3/25 15:04
+ * created by chenq
  */
 @Slf4j
 public class SearchResultsCompatibility {

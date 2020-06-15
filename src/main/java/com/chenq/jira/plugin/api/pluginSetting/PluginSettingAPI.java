@@ -4,6 +4,8 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
+
 /**
  * Jira提供了PROPERTYENTRY 表，可以用来存储、读取一些全局变量
  * 2020/5/29 13:16
@@ -14,6 +16,7 @@ public class PluginSettingAPI {
     @ComponentImport
     private final PluginSettingsFactory pluginSettingsFactory;
 
+    @Inject
     public PluginSettingAPI(PluginSettingsFactory pluginSettingsFactory) {
         this.pluginSettingsFactory = pluginSettingsFactory;
     }
