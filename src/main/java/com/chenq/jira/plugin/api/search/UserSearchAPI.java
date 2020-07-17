@@ -34,7 +34,7 @@ public class UserSearchAPI {
 
         // findUsers第一个参数
         // @param query：the query to search username, display name and email address
-        return userSearchService.findUsers("", searchParamsBuilder.build());
+        return userSearchService.findUsers("", UserSearchParams.builder().build());
     }
 
 }

@@ -20,8 +20,8 @@ public interface UserEntity extends BaseColumn, DeleteColumn {
     void setAge(Integer age);
 
     /**
-     * 这里会生成com.chenq.jira.plugin.api.ao.entity.DepartmentEntity外键，
-     * 字段名为DEPT_ID
+     * 这里会生成GroupEntity外键，
+     * 字段名为GROUP_ID
      */
     GroupEntity getGroup();
     void setGroup(GroupEntity group);

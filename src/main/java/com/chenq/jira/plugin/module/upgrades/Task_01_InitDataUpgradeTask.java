@@ -31,7 +31,7 @@ public class Task_01_InitDataUpgradeTask implements PluginUpgradeTask {
 
     @Override
     public int getBuildNumber() {
-        return 5;
+        return 8;
     }
 
     @Override

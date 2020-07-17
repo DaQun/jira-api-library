@@ -29,6 +29,7 @@ public class IssueEventListener implements InitializingBean, DisposableBean {
 
 
     @Override
+
     public void destroy() throws Exception {
         this.eventPublisher.unregister(this);
     }

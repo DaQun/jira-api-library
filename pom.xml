@@ -20,6 +20,19 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-plugin</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.googlecode.jtype</groupId>
+                    <artifactId>jtype</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+        <dependency>
             <groupId>com.chenq.jira.plugin</groupId>
             <artifactId>jira-develop-helper</artifactId>
             <version>1.0.0</version>
@@ -110,6 +123,25 @@
         <!--            <version>${jira.version}</version>-->
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
+        <!-- JIRA Agile 相关-->
+        <dependency>
+            <groupId>com.atlassian.jira.plugins</groupId>
+            <artifactId>jira-greenhopper-plugin</artifactId>
+            <version>7.6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins.rest</groupId>
+            <artifactId>atlassian-rest-module</artifactId>
+            <version>3.2.11</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
@@ -131,8 +163,24 @@
                     <!--                            <version>${testkit.version}</version>-->
                     <!--                        </pluginArtifact>-->
                     <!--                    </pluginArtifacts>-->
+                    <!-- 开发环境 JIRA 默认安装 JIRA Software -->
+                    <applications>
+                        <application>
+                            <applicationKey>jira-software</applicationKey>
+                            <version>${jira.version}</version>
+                        </application>
+                    </applications>
                     <enableQuickReload>true</enableQuickReload>
-
+                    <!-- 禁止 sdk 向谷歌发送数据 -->
+                    <allowGoogleTracking>false</allowGoogleTracking>
+                    <products>
+                        <product>
+                            <!-- 此处必须是小写字母 jira-->
+                            <id>jira</id>
+                            <instanceId>JIRA</instanceId>
+                            <version>${jira.version}</version>
+                        </product>
+                    </products>
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
@@ -182,7 +230,8 @@
     </build>
 
     <properties>
-        <jira.version>8.5.0</jira.version>
+<!--        <jira.version>8.5.0</jira.version>-->
+        <jira.version>7.13.0</jira.version>
         <amps.version>8.0.2</amps.version>
         <plugin.testrunner.version>2.0.1</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>

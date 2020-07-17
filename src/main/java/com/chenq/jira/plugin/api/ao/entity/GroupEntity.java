@@ -19,6 +19,7 @@ import javax.validation.constraints.Size;
         @Index(name = "first", methodNames = {"getGroupNo", "getGroupName"}),
         @Index(name = "second", methodNames = {"getParent", "getGroupName"}),
 })
+@Table("GROUP")
 public interface GroupEntity extends BaseColumn, DeleteColumn {
 
     // 单字段索引

@@ -1,16 +1,15 @@
 package com.chenq.jira.plugin.api.issue;
 
 import com.atlassian.jira.bc.issue.IssueService;
-import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.exception.CreateException;
 import com.atlassian.jira.issue.*;
+import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.project.Project;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.chenq.jira.plugin.constant.IConstant;
 import com.google.common.collect.Maps;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -30,13 +29,17 @@ public class IssueAPI {
     protected final IssueService issueService;
     @ComponentImport
     protected final IssueFactory issueFactory;
+    @ComponentImport
+    protected final CustomFieldManager customFieldManager;
 
     @Inject
-    public IssueAPI(JiraAuthenticationContext jiraAuthenticationContext, IssueManager issueManager, IssueService issueService, IssueFactory issueFactory) {
+    public IssueAPI(JiraAuthenticationContext jiraAuthenticationContext, IssueManager issueManager, IssueService issueService, IssueFactory issueFactory,
+            CustomFieldManager customFieldManager) {
         this.jiraAuthenticationContext = jiraAuthenticationContext;
         this.issueManager = issueManager;
         this.issueService = issueService;
         this.issueFactory = issueFactory;
+        this.customFieldManager = customFieldManager;
     }
 
     /**
@@ -54,6 +57,13 @@ public class IssueAPI {
         issue.setSummary("issue summary");
         issue.setReporter(user);
         issue.setAssigneeId(user.getKey());
+        // 自定义字段的赋值,可以通过id或者name获取
+//        CustomField customField = customFieldManager.getCustomFieldObjectByName("自定义字段名");
+        CustomField customFieldObject = customFieldManager.getCustomFieldObject(10000L);
+        if (customFieldObject != null) {
+            issue.setCustomFieldValue(customFieldObject, "123");
+        }
+
         return issueManager.createIssueObject(jiraAuthenticationContext.getLoggedInUser(), issue);
     }
 

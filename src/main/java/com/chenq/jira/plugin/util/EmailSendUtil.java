@@ -39,7 +39,6 @@ public class EmailSendUtil {
             log.warn("SMTP Mail Server is not found. Please configure new SMTP mail server.");
             return;
         }
-
         try {
             mailServer.send(email);
         } catch (MailException e) {

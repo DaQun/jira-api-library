@@ -1,6 +1,7 @@
 package com.chenq.jira.plugin.api.customfield;
 
 import com.atlassian.jira.issue.CustomFieldManager;
+import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.customfields.manager.OptionsManager;
 import com.atlassian.jira.issue.customfields.option.Options;
 import com.atlassian.jira.issue.fields.CustomField;
@@ -47,6 +48,11 @@ public class SelectCFAPI extends CustomFieldAPI{
         }
 
         return null;
+    }
+
+    public Options getSelectOptions(CustomField customField, Issue issue) {
+        FieldConfig relevantConfig = customField.getRelevantConfig(issue);
+        return optionsManager.getOptions(relevantConfig);
     }
 
 }

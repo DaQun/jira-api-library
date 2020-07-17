@@ -1,6 +1,7 @@
 package com.chenq.jira.plugin.api.customfield;
 
 import com.atlassian.jira.issue.CustomFieldManager;
+import com.atlassian.jira.issue.customfields.CustomFieldType;
 import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * 2020/5/26 14:22
@@ -35,5 +37,14 @@ public class CustomFieldAPI {
 
         return values.stream().findFirst().orElse(null);
     }
+
+    /**
+     * 获取jira系统中所有的自定义字段类型（返回结果可参考同级目录下customfiled.json）
+     */
+    public List<CustomFieldType<?, ?>> getCustomFieldTypes() {
+       return customFieldManager.getCustomFieldTypes();
+    }
+
+
 
 }

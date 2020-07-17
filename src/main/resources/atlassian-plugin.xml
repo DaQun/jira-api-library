@@ -2,7 +2,7 @@
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
@@ -16,16 +16,24 @@
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="com.github.daqun.jira-api-library"/>
-    
+
     <!-- add our web resources -->
     <web-resource key="com.github.daqun.jira-api-library-resources" name="com.github.daqun.jira-api-library Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
+
         <resource type="download" name="com.github.daqun.jira-api-library.css" location="/css/com.github.daqun.jira-api-library.css"/>
         <resource type="download" name="com.github.daqun.jira-api-library.js" location="/js/com.github.daqun.jira-api-library.js"/>
         <resource type="download" name="images/" location="/images"/>
 
         <context>com.github.daqun.jira-api-library</context>
     </web-resource>
-    
+
+    <rest key="rest-service-jira-api-library-resource" path="/jiraapi" version="1">
+        <description key="rest-service-shdsd-org-resource.description">
+            Provides the REST resource for Jira API Library.
+        </description>
+        <!-- 指定rest类存放的路径，也可以不指定，会自动扫描全包 -->
+        <package>com.chenq.jira.plugin.module.rest</package>
+    </rest>
+
 </atlassian-plugin>

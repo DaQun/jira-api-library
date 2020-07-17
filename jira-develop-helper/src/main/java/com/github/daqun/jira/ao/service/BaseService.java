@@ -118,7 +118,6 @@ public abstract class BaseService<T extends Entity> implements IDaoService<T>, I
         return Pages.page(Lists.newArrayList(ts), total, page);
     }
 
-    // TODO 没必要lambda，写个简单方法也可以
     protected Consumer<T> updateColumnConsumer = t -> {
         if (t instanceof BaseColumn){
             ((BaseColumn) t).setModifier("modifier");

@@ -3,10 +3,7 @@ package com.chenq.jira.plugin.api.issue;
 import com.atlassian.jira.bc.issue.IssueService;
 import com.atlassian.jira.config.SubTaskManager;
 import com.atlassian.jira.exception.CreateException;
-import com.atlassian.jira.issue.Issue;
-import com.atlassian.jira.issue.IssueFactory;
-import com.atlassian.jira.issue.IssueManager;
-import com.atlassian.jira.issue.MutableIssue;
+import com.atlassian.jira.issue.*;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.chenq.jira.plugin.api.constants.ConstantsAPI;
@@ -27,8 +24,8 @@ public class SubTaskIssueAPI extends IssueAPI{
 
     @Inject
     public SubTaskIssueAPI(JiraAuthenticationContext jiraAuthenticationContext, IssueManager issueManager, IssueService issueService, IssueFactory issueFactory,
-            SubTaskManager subTaskManager, ConstantsAPI constantsAPI) {
-        super(jiraAuthenticationContext, issueManager, issueService, issueFactory);
+            CustomFieldManager customFieldManager, SubTaskManager subTaskManager, ConstantsAPI constantsAPI) {
+        super(jiraAuthenticationContext, issueManager, issueService, issueFactory, customFieldManager);
         this.subTaskManager = subTaskManager;
         this.constantsAPI = constantsAPI;
     }
