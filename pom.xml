@@ -24,13 +24,6 @@
             <artifactId>jira-rest-plugin</artifactId>
             <version>${jira.version}</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.googlecode.jtype</groupId>
-                    <artifactId>jtype</artifactId>
-                </exclusion>
-            </exclusions>
-
         </dependency>
         <dependency>
             <groupId>com.chenq.jira.plugin</groupId>
@@ -124,25 +117,30 @@
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
         <!-- JIRA Agile 相关-->
-        <dependency>
-            <groupId>com.atlassian.jira.plugins</groupId>
-            <artifactId>jira-greenhopper-plugin</artifactId>
-            <version>7.6.0</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.jira.plugins</groupId>-->
+<!--            <artifactId>jira-greenhopper-plugin</artifactId>-->
+<!--            <version>7.6.0</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
             <scope>compile</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.plugins.rest</groupId>-->
+<!--            <artifactId>atlassian-rest-module</artifactId>-->
+<!--            <version>3.2.11</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.atlassian.plugins.rest</groupId>
             <artifactId>atlassian-rest-module</artifactId>
             <version>3.2.11</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -164,12 +162,12 @@
                     <!--                        </pluginArtifact>-->
                     <!--                    </pluginArtifacts>-->
                     <!-- 开发环境 JIRA 默认安装 JIRA Software -->
-                    <applications>
-                        <application>
-                            <applicationKey>jira-software</applicationKey>
-                            <version>${jira.version}</version>
-                        </application>
-                    </applications>
+<!--                    <applications>-->
+<!--                        <application>-->
+<!--                            <applicationKey>jira-software</applicationKey>-->
+<!--                            <version>${jira.version}</version>-->
+<!--                        </application>-->
+<!--                    </applications>-->
                     <enableQuickReload>true</enableQuickReload>
                     <!-- 禁止 sdk 向谷歌发送数据 -->
                     <allowGoogleTracking>false</allowGoogleTracking>
@@ -243,6 +241,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <ao.version>1.2.0</ao.version>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
 
 </project>

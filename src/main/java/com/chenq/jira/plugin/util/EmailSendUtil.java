@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 邮件发送类
+ * 邮件发送类(需要jira里已经配好邮件服务器)
  * Created by chenq
  * 2020/2/11 16:42
  */
@@ -25,6 +25,7 @@ public class EmailSendUtil {
         Email email = new Email(to);
         email.setSubject(subject);//邮件主题
         email.setBody(body);//邮件正文
+        email.setMimeType("text/html");
         sendMail(email);
     }
 
