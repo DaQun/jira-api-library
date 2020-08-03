@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Named
 public class ScheduleJob implements JobRunner, InitializingBean, DisposableBean {
-
+    // 同步任务执行的最小时间粒度就是分钟
     private static final long EVERY_MINUTE = TimeUnit.MINUTES.toMillis(1);
     private static final JobRunnerKey JOB_RUNNER_KEY = JobRunnerKey.of(ScheduleJob.class.getName());
     private static final JobId JOB_ID = JobId.of(ScheduleJob.class.getName());

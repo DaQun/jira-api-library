@@ -1,6 +1,8 @@
 package com.chenq.jira.plugin.api.ao.service.impl;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
+import com.atlassian.jira.transaction.Transaction;
+import com.atlassian.jira.transaction.Txn;
 import com.atlassian.jira.util.Page;
 import com.atlassian.jira.util.PageRequest;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
@@ -32,14 +34,23 @@ public class UserServiceImpl  extends BaseService<UserEntity> implements UserSer
 
     @Override
     public UserEntity create(UserBean userBean) {
-        UserEntity userEntity = ao.create(UserEntity.class);
-        userEntity.setName(userBean.getName());
-        userEntity.setAddress(userBean.getAddress());
-        userEntity.setGroup(groupService.getByGroupNo(userBean.getGroupNo()));
-        userEntity.setAge(userBean.getAge());
-        userEntity.save();
+        // 方法中开启事务
+        // 目前测试下来只用这种方法生效，使用注解的方式无效！
+        Transaction txn = Txn.begin();
 
-        return userEntity;
+        try{
+            UserEntity userEntity = ao.create(UserEntity.class);
+            userEntity.setName(userBean.getName());
+            userEntity.setAddress(userBean.getAddress());
+            userEntity.setGroup(groupService.getByGroupNo(userBean.getGroupNo()));
+            userEntity.setAge(userBean.getAge());
+            userEntity.save();
+            txn.commit();
+
+            return userEntity;
+        } finally {
+            txn.finallyRollbackIfNotCommitted();
+        }
     }
 
     @Override
