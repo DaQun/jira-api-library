@@ -1,13 +1,13 @@
 package com.github.daqun.jira.ao;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
+import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.util.Page;
 import com.atlassian.jira.util.PageRequest;
 import com.atlassian.jira.util.Pages;
 import com.github.daqun.jira.ao.column.BaseColumn;
 import com.github.daqun.jira.ao.column.DeleteColumn;
 import com.github.daqun.jira.ao.column.UpdateColumn;
-import com.github.daqun.jira.core.DsdApp;
 import com.google.common.collect.Lists;
 import net.java.ao.DBParam;
 import net.java.ao.Entity;
@@ -15,10 +15,7 @@ import net.java.ao.EntityStreamCallback;
 import net.java.ao.Query;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.google.common.base.Preconditions.checkState;
 
@@ -87,7 +84,7 @@ public class EnhanceActiveObject {
         T t = ao.get(aClass, id);
         if (t != null) {
             t.setModifyTime(new Date());
-            t.setModifier(DsdApp.getLoggedInUser().getKey());
+            t.setModifier(Optional.ofNullable(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser()).map(e -> e.getKey()).orElse(""));
         }
 
         return t;

@@ -1,8 +1,6 @@
 package com.chenq.jira.plugin.module.rest.interceptor;
 
 
-import com.atlassian.jira.security.JiraAuthenticationContext;
-import com.atlassian.jira.security.PermissionManager;
 import com.atlassian.jira.util.SimpleErrorCollection;
 import com.atlassian.plugins.rest.common.interceptor.MethodInvocation;
 import com.atlassian.plugins.rest.common.interceptor.ResourceInterceptor;
@@ -21,13 +19,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * resource的拦截器，可以做一些处理,预留
  */
 public class SecurityInterceptor implements ResourceInterceptor {
-    private final JiraAuthenticationContext jac;
-    private final PermissionManager permissionManager;
-
-    public SecurityInterceptor(final JiraAuthenticationContext jac, final PermissionManager permissionManager) {
-        this.jac = jac;
-        this.permissionManager = permissionManager;
-    }
 
     @Override
     public void intercept(final MethodInvocation methodInvocation)

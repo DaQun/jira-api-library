@@ -1,5 +1,6 @@
 package com.chenq.jira.plugin.module.rest.interceptor;
 
+import com.github.daqun.jira.error.EnumBusinessError;
 import com.github.daqun.jira.web.response.Resp;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +25,6 @@ public class JiraExceptionMapper implements ExceptionMapper<Exception> {
     @Override
     public Response toResponse(Exception exception) {
         log.error("DsdExceptionMapper:rest api exec error!!!", exception);
-        return Resp.err(exception);
+        return Resp.err(exception.getMessage() == null ? EnumBusinessError.UNKNOW_ERROR.getErrMsg() : exception.getMessage());
     }
 }
