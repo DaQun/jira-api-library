@@ -13,6 +13,7 @@ import net.java.ao.DBParam;
 import net.java.ao.Entity;
 import net.java.ao.EntityStreamCallback;
 import net.java.ao.Query;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
@@ -133,7 +134,7 @@ public class EnhanceActiveObject {
     public <T extends Entity> T[] findLogical(Class<T> aClass, String s, Object... objects) {
         checkState(hasDeleteColumn(aClass));
 
-        return ao.find(aClass, wrapLogicalDelete(s), objects, false);
+        return ao.find(aClass, wrapLogicalDelete(s), ArrayUtils.add(objects, false));
     }
 
     private String wrapLogicalDelete(String query) {
@@ -153,7 +154,7 @@ public class EnhanceActiveObject {
         query.setOrderClause(orderClause);
 
         if (pageRequest != null) {
-            query.limit(pageRequest.getLimit()).offset(pageRequest.getLimit());
+            query.limit(pageRequest.getLimit()).offset((int) pageRequest.getStart());
         }
 
         T[] ts = ao.find(aClass, query);
