@@ -44,7 +44,7 @@ public class SearchResultsCompatibility {
     private void decodeJIRAVersion() {
         ApplicationProperties applicationProperties = ComponentAccessor
                 .getApplicationProperties();
-        String versionString = applicationProperties.getString("com.github.daqun.jira.version");
+        String versionString = applicationProperties.getString("jira.version");
 
         try {
             String versionRegex = "^(\\d+)\\.(\\d+)";

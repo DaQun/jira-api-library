@@ -57,6 +57,8 @@ public class FileResource {
      * 获取图片
      * @param fileId 图片Id
      */
+
+
     @GET
     @Path("{fileId}")
     @Produces("image/*")
